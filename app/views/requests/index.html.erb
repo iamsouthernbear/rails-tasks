@@ -1,0 +1,20 @@
+<h1 class="title">Hello, epta!</h1>
+<div class="container">
+  <div class="left column">
+    <%= form_with(scope: :request) do |f| %>
+      <p><%= f.text_field :text %></p>
+      <p><%= f.submit 'Жмакай' %></p>
+    <% end %>
+  </div>
+
+  <div class="right column">
+    <div class="counter">
+      <h3><%= @count %> <%= @counter %></h3>
+      <h4><%= @alert_text %></h4>
+    </div>
+    <% @requests.each do |req| %>
+      <div class="text"><%= req.text %></div>
+      <div class="date"><%= req.created_at %></div>
+    <% end %>
+  </div>
+</div>
