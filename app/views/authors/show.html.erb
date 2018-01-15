@@ -1,0 +1,15 @@
+<table>
+  <% [:name, :email, :city, :address, :birth_date].each do |field|  %>
+  <tr>
+    <td><%= Author.human_attribute_name(field) %></td>
+    <td><%= @author[field] %></td>
+  </tr>
+  <% end %>
+</table>
+<% @articles.each do |article| %>
+  <p><%= article.title %> | Tags:
+  <% article.tags.each do |tag| %>
+    <span><%= link_to tag.name, articles_path(tag: tag.name) %></span>
+  <% end %> |
+  <%= link_to 'Detail', article_path(article) %></p>
+<% end %>

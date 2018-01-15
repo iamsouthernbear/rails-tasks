@@ -1,0 +1,9 @@
+<table>
+  <% @authors.each do |author| %>
+  <tr>
+    <td><%= author.name %></td>
+    <td><%= link_to 'Details', author_path(author) %></td>
+  </tr>
+  <% end %>
+</table>
+<%= paginate @authors %>

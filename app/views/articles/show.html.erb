@@ -1,0 +1,7 @@
+<h1><%= @article.title %></h1>
+<p><%= @article.text %></p>
+<p>
+  <% @article.tags.each do |tag| %>
+    <span><%= link_to tag.name, articles_path(tag: tag.name) %></span>
+  <% end %>
+</p>

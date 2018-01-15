@@ -1,0 +1,15 @@
+<table>
+  <% @articles.each do |article| %>
+  <tr>
+    <td><%= article.title %></td>
+    <td><%= article.author.name %></td>
+    <td>
+      <% article.tags.each do |tag| %>
+        <span><%= link_to tag.name, articles_path(tag: tag.name) %> |</span>
+      <% end %>
+    </td>
+    <td><%= link_to 'Details', article_path(article) %></td>
+  </tr>
+  <% end %>
+</table>
+<%= paginate @articles %>

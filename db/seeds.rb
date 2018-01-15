@@ -17,7 +17,8 @@ tags = FactoryBot.create_list(:tag, 20)
         FactoryBot.create_list(:comment, rand(10), article: article)
 
         3.times do
-             article.tags << tags[rand(tags.size - 1)]
+            tag = tags[rand(tags.size - 1)]
+            article.tags << tag
         end
     end
 end
