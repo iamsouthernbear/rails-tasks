@@ -12,6 +12,13 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    user = current_user
     @article = Article.find(params[:id])
+    @comment = Comment.new
+    @comments = Comment.where(article_id: @article)
+    @user_name = "Anonymus"
+    if user
+      @user_name = user[:username]
+    end
   end
 end

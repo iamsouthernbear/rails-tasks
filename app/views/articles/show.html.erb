@@ -5,3 +5,21 @@
     <span><%= link_to tag.name, articles_path(tag: tag.name) %></span>
   <% end %>
 </p>
+<hr>
+<% @comments.each do |comment| %>
+  <h3>User: <%= comment.user_name %></h3>
+  <p> Comment: <%= comment.text %></p>
+<% end %>
+<hr>
+<%= form_for :comment, url: comments_path do |f| %>
+  <h3>Write your comment</h3>
+  <p>
+    <%= f.label :user_name, :value => @user_name %>
+    <%= f.hidden_field :user_name, :value => @user_name %>
+  </p>
+  <p>
+    <%= f.text_area :text %>
+  </p>
+  <%= f.hidden_field :article_id, :value => @article.id %>
+  <%= f.submit %>
+<% end %>

@@ -32,6 +32,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'faker'
 gem 'awesome_print'
 gem 'kaminari'
+gem 'devise'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
